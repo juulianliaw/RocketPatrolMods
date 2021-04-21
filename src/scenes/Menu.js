@@ -10,23 +10,24 @@ class Menu extends Phaser.Scene {
         this.load.audio('sfx_explosion', './assets/explosion38.wav');
         this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
     }
+    //Novice Tier: New title screen (10)
     create() {
         let menuConfig = {
-            fontFamily: 'Courier',
+            fontFamily: 'Quicksand',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            backgroundColor: '#ff0032',
+            color: '#000',
             align: 'right',
             padding: {
-                top: 5,
-                bottom: 5,
+                top: 0,
+                bottom: 0,
             },
             fixedWidth: 0
         }
         //show menu text
-        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'ROCKET PATROL', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/2, 'Use <--> arrows to move & (F) to fire', menuConfig).setOrigin(0.5);
-        menuConfig.backgroundColor = '#00FF00';
+        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'Use <--> arrows to move & (F) to fire', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/2, 'ROCKET PATROL', menuConfig).setOrigin(0.5);
+        menuConfig.backgroundColor = '#c33b00';
         menuConfig.color = '#000';
         this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, 'Press <- for Novice or ->for Expert', menuConfig).setOrigin(0.5);
         //define keys

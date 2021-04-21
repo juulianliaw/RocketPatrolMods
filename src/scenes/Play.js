@@ -124,6 +124,9 @@ class Play extends Phaser.Scene {
         });
         //score add and repaint
         this.p1Score += ship.points;
+
+        //Intermediate tier: Time increases by 10 seconds upon successful hits (20)
+        this.initialTime += 10;
         this.scoreLeft.text = this.p1Score;
         this.sound.play('sfx_explosion');
     }
