@@ -64,6 +64,13 @@ class Play extends Phaser.Scene {
             this.gameOver = true;
         }, null, this);
         
+        //Novice Tier: Display remaining time (10)
+        {
+            console.log('create');
+            this.initialTime = game.settings.gameTimer/1000;
+            text = this.add.text(32, 32, 'Countdown: '+ formatTime(this.initialTime));
+            timedEvent = this.time.addEvent({delay: 1000, callback: onEvent, callbackScope: this, loop: true});
+        }
     }
     update(){
         //check key input for restart
@@ -122,3 +129,20 @@ class Play extends Phaser.Scene {
     }
 
 }
+    //Novice Tear: Display remaining time (cont.)
+    var text;
+    var timedEvent;
+    function formatTime(seconds){
+        minutes = Math.floor(seconds/60);
+        partInSeconds = seconds%60;
+        partInSeconds = partInSeconds.toString().padStart(2, '0');
+        return `${minutes}:${partInSeconds}`;
+    }
+    function onEvent(){
+        if(!this.gameOver){
+            this.initialTime -= 1;
+            text.setText('Countdown '+ formatTime(this.initialTime));
+        } else {
+            this.clock = false;
+        }
+    }
