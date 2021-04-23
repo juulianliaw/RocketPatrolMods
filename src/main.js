@@ -1,3 +1,17 @@
+//Julian Liaw
+//Rocket Patrol MOD
+//4/23/2021
+//This project took me around 10 hours to complete
+
+//Point Breakdown:
+//Simultaneous two player mode (30)
+//Timing mechanism that adds time to clock (20)
+//New spaceship with artwork thats smaller and faster (20)
+//New title screen (10)
+//Display time remaining (10)
+//Allow the player to control rocket (5)
+//Total (95) (still working)
+
 let config = {
     type: Phaser.CANVAS,
     width: 640,
