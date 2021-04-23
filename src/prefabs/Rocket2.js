@@ -1,5 +1,6 @@
-//Rocket prefab
-class Rocket extends Phaser.GameObjects.Sprite {
+//Shrek Tier: Implemented simultaneous two player mode with A and D keys (30)
+//Both players work together to try to get a combined high score
+class Rocket2 extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
         //add object to existing scene
@@ -16,12 +17,17 @@ class Rocket extends Phaser.GameObjects.Sprite {
                 this.x += this.moveSpeed;
             }
         }
-        if(Phaser.Input.Keyboard.JustDown(keyF) && !this.isFiring){
+        if(Phaser.Input.Keyboard.JustDown(keyW) && !this.isFiring){
             this.isFiring = true;
             this.sfxRocket.play();  //play sfx
         }
         if(this.isFiring && this.y >= borderUISize * 3 + borderPadding){
             this.y -= this.moveSpeed;
+            if(keyA.isDown && this.x >= borderUISize + this.width){
+                this.x -= this.moveSpeed;
+            } else if (keyD.isDown && this.x <= game.config.width - borderUISize - this.width){
+                this.x += this.moveSpeed;
+            }
         }
         if(this.y <= borderUISize * 3 + borderPadding){
             this.isFiring = false;
